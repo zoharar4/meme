@@ -1,0 +1,15 @@
+@font-face {
+font-family: 'Popping';
+    src: url('/fonts/Poppins/Poppins-Light.ttf') format('woff2');
+    font-weight: 300;
+}
+@font-face {
+font-family: 'Popping';
+    src: url('/fonts/Poppins/Poppins-Regular.ttf') format('woff2');
+    font-weight: 400;
+}
+@font-face {
+font-family: 'Popping';
+    src: url('/fonts/Poppins/Poppins-Bold.ttf') format('woff2');
+    font-weight: 700;
+}

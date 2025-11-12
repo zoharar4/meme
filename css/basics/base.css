@@ -5,7 +5,13 @@
     box-sizing: border-box;
 }
 
+html{
+    font-family: Popping;
+    font-weight: 700;
+}
+
 body{
     padding: 0;
     margin: 0;
+    background-color: var(--color-1);
 }

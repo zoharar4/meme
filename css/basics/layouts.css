@@ -13,14 +13,28 @@
 
 .main-header {
     grid-column: 1/-1;
-    display:grid;
-    grid-template-columns: minmax(16px, 1fr) minmax(auto, 400px) minmax(auto, 800px) minmax(16px, 1fr);
+    display: grid;
+    grid-template-columns: minmax(16px, 1fr) minmax(auto, 300px) minmax(auto, 900px) minmax(16px, 1fr);
 }
 
-.logo{
+.logo {
     grid-column: 2;
 }
 
-.main-nav{
-    grid-column:3
+.main-nav {
+    grid-column: 3
+}
+
+.categories{
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 10px;
+}
+
+.gallery-imgs {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
+    justify-items: center;
 }
