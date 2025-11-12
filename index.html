@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,47 @@
         </nav>
     </header>
 
+    <section class="meme-editor">
+
+        <div class="canvas-container">
+            <canvas width="450" height="450" style="background-color: brown;"></canvas>
+        </div>
+
+        <div class="edit-tools">
+            <input id="memeTextInput" type="text">
+
+            <section class="edit-sec-1">
+                <button class="edit-btns switch-btn"><img src="ICONS/switch.png" alt="switch to next text"></button>
+                <button class="edit-btns add-btn"><img src="ICONS/add.png" alt="add new text"></button>
+                <button class="edit-btns delete-btn"><img src="ICONS/trash.png" alt="delete text"></button>
+            </section>
+
+            <section class="edit-sec-2">
+                <button class="edit-btns inc-font-btn"><img src="ICONS/increase-font-size.png" alt="increase font size"></button>
+                <button class="edit-btns dec-font-btn"><img src="ICONS/decrease-font-size.png" alt="increase font size"></button>
+                <button class="edit-btns align-left-btn"><img src="ICONS/align-left.png" alt="align text left"></button>
+                <button class="edit-btns align-center-btn"><img src="ICONS/align-center.png" alt="align text center"></button>
+                <button class="edit-btns align-right-btn"><img src="ICONS/align-right.png" alt="align text right"></button>
+                <select id="fontFamiliy">
+                    <option value="">htoiher</option>
+                    <option value="">htoiher2</option>
+                    <option value="">htoiher3</option>
+                </select>
+                <button class="edit-btns stroke-btn"><img src="ICONS/text-stroke.png" alt="stroke"></button>
+                <button class="edit-btns color-btn"><img src="ICONS/paint-brush.png" alt="color"></button>
+            </section>
+
+            <section class="edit-sec-3">
+                <p>asfasfsf</p>
+            </section>
+
+            <section class="edit-sec-4">
+                <button class="edit-btns share-btn">Share</button>
+                <button class="edit-btns download-btn">Download</button>
+            </section>
+        </div>
+    </section>
+
     <section class="gallery">
         <nav class="categories">
             <input type="text">
@@ -32,40 +74,8 @@
         </div>
     </section>
 
-    <section class="meme-editor">
-        <canvas width="450" height="450" style="background-color: brown;"></canvas>
-        <div class="edit-tools">
-
-            <section class="edit-sec-1">
-                <input id="memeTextInput" type="text">
-                <button class="edit-btns switch-btn"></button>
-                <button class="edit-btns add-btn"></button>
-                <button class="edit-btns remove-btn"></button>
-            </section>
-            
-            <section class="edit-sec-2">
-                <button class="edit-btns remove-btn"></button>
-                <button class="edit-btns remove-btn"></button>
-                <button class="edit-btns remove-btn"></button>
-                <button class="edit-btns remove-btn"></button>
-                <button class="edit-btns remove-btn"></button>
-                <select id="textFont">
-                    <option value="">htoiher</option>
-                    <option value="">htoiher2</option>
-                    <option value="">htoiher3</option>
-                </select>
-                <button class="edit-btns remove-btn"></button>
-                <button class="edit-btns remove-btn"></button>
-                
-            </section>
-
-            <section class="edit-sec-3">
-
-            </section>
-        </div>
-    </section>
-
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>
+
 </html>

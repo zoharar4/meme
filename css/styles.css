@@ -2,12 +2,14 @@
 /*BASICS*/
 @import url('basics/base.css');
 @import url('basics/layouts.css');
+@import url('basics/editor-layout.css');
 
 
 
 /*COMPONENTS*/
 @import url('components/main-header.css');
 @import url('components/gallery.css');
+@import url('components/editor.css');
 
 /*SETUP*/
 @import url('setup/vars.css');
