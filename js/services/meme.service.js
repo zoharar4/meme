@@ -12,6 +12,7 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
+    imgUrl: "/images/meme-square/7.jpg",
     lines: [
         {
             txt: 'I sometimes eat Falafel',
@@ -25,4 +26,8 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 function getImgsArray() {
     return gImgs
+}
+
+function getMeme() {
+    return gMeme
 }
