@@ -1,0 +1,19 @@
+.main-layout {
+    display: grid;
+    grid-template-columns: minmax(16px, 1fr) minmax(auto, 1200px) minmax(16px, 1fr);
+
+    >.gallery {
+        grid-column: 2/-2;
+    }
+
+    >.meme-editor {
+        grid-column: 2/-2;
+    }
+}
+
+.main-header {
+    grid-column: 1/-1;
+
+    display: flex;
+    gap: 10px;
+}

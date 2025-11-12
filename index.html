@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="main-layout" onload="onInit()">
+    <header class="main-header">
+        <div class="logo">Meme Generator</div>
+        <nav>
+            <button>Gallery</button>
+            <button>Memes</button>
+            <button>About</button>
+        </nav>
+    </header>
+
+    <section class="gallery">
+        <input type="text">
+        <nav class="categories">
+            <button>Funny</button>
+            <button>Animal</button>
+            <button>Work</button>
+        </nav>
+
+        <div class="gallery-imgs">
+        </div>
+    </section>
+
+    <section class="meme-editor">
+        <canvas width="450" height="450" style="background-color: brown;"></canvas>
+        <div class="edit-tools">
+
+            <section class="edit-sec-1">
+                <input type="text">
+                <button class="edit-btns switch-btn"></button>
+                <button class="edit-btns add-btn"></button>
+                <button class="edit-btns remove-btn"></button>
+            </section>
+            
+            <section class="edit-sec-2">
+                <button class="edit-btns remove-btn"></button>
+                <button class="edit-btns remove-btn"></button>
+                <button class="edit-btns remove-btn"></button>
+                <button class="edit-btns remove-btn"></button>
+                <button class="edit-btns remove-btn"></button>
+                <select id="textFont">
+                    <option value="">htoiher</option>
+                    <option value="">htoiher2</option>
+                    <option value="">htoiher3</option>
+                </select>
+                <button class="edit-btns remove-btn"></button>
+                <button class="edit-btns remove-btn"></button>
+                
+            </section>
+
+            <section class="edit-sec-3">
+
+            </section>
+        </div>
+    </section>
+
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+</body>
+</html>
