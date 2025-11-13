@@ -26,11 +26,11 @@ function renderMeme() {   //renders the curr meme in the canvas
     const meme = getMeme()
     const img = new Image()
     img.src = meme.imgUrl
-    
+
     if (!meme.lines.length) {
         addText()
     }
-    
+
     document.querySelector('#memeTextInput').value = meme.lines[meme.selectedLineIdx].txt
 
     img.onload = () => {
@@ -81,10 +81,10 @@ function onMoveLine(direction) {
 }
 
 function onDeleteLine() {
-    getMeme().lines.splice(getMeme().selectedLineIdx,1)
+    getMeme().lines.splice(getMeme().selectedLineIdx, 1)
     getMeme().selectedLineIdx = 0
     renderMeme()
-    console.log('getMeme():',getMeme())
+    console.log('getMeme():', getMeme())
 }
 
 function onFontSize(action) {
@@ -118,6 +118,12 @@ function onChangedColor(value) {
 
 function onAddText() {
     addText()
+}
+
+function onFontFamily(value) {
+    getMeme().lines[getMeme().selectedLineIdx].fontFamily = value
+    renderMeme()
+
 }
 
 function onDownloadCanvas() {

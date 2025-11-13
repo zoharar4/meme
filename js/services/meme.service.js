@@ -111,8 +111,8 @@ function addText() {
 function getLine() {
     return {
         txt: 'text',
-        size: 35,
-        color: 'rgba(18, 153, 130, 1)',
+        size: 40,
+        color: 'white',
         fontFamily: 'impact',
         txtAlign: 'center',
         x: gElCanvas.width / 2,
