@@ -26,29 +26,45 @@
             <input oninput="onTextChanged(this.value)" id="memeTextInput" type="text">
 
             <section class="edit-sec-1">
-                <button class="edit-btns switch-btn"><img src="ICONS/switch.png" alt="switch to next text"></button>
-                <button class="edit-btns add-btn"><img src="ICONS/add.png" alt="add new text"></button>
-                <button class="edit-btns delete-btn"><img src="ICONS/trash.png" alt="delete text"></button>
+                <button onclick="onMoveLine('up')" class="edit-btns up-btn"><img src="ICONS/up-arrow.png"
+                        alt="switch to next text"></button>
+                <button onclick="onMoveLine('down')" class="edit-btns down-btn"><img style="transform: rotate(180deg);" src="ICONS/up-arrow.png"
+                        alt="switch to next text"></button>
+                <button onclick="onChangeLine()" class="edit-btns switch-btn"><img src="ICONS/switch.png"
+                        alt="switch to next text"></button>
+                <button onclick="onAddText()" class="edit-btns add-btn"><img src="ICONS/add.png"
+                        alt="add new text"></button>
+                <button onclick="onDeleteLine()" class="edit-btns delete-btn"><img src="ICONS/trash.png" alt="delete text"></button>
             </section>
 
             <section class="edit-sec-2">
                 <button onclick="onFontSize('increase')" class="edit-btns inc-font-btn"><img
                         src="ICONS/increase-font-size.png" alt="increase font size"></button>
+
                 <button onclick="onFontSize('decrease')" class="edit-btns dec-font-btn"><img
                         src="ICONS/decrease-font-size.png" alt="increase font size"></button>
+
                 <button onclick="onTextAlign('left')" class="edit-btns align-left-btn"><img src="ICONS/align-left.png"
                         alt="align text left"></button>
-                <button onclick="onTextAlign('center')" class="edit-btns align-center-btn"><img src="ICONS/align-center.png"
-                        alt="align text center"></button>
-                <button onclick="onTextAlign('right')" class="edit-btns align-right-btn"><img src="ICONS/align-right.png"
-                        alt="align text right"></button>
+
+                <button onclick="onTextAlign('center')" class="edit-btns align-center-btn"><img
+                        src="ICONS/align-center.png" alt="align text center"></button>
+
+                <button onclick="onTextAlign('right')" class="edit-btns align-right-btn"><img
+                        src="ICONS/align-right.png" alt="align text right"></button>
+
                 <select id="fontFamily">
                     <option value="">htoiher</option>
                     <option value="">htoiher2</option>
                     <option value="">htoiher3</option>
                 </select>
+
                 <button class="edit-btns stroke-btn"><img src="ICONS/text-stroke.png" alt="stroke"></button>
-                <button class="edit-btns color-btn"><img src="ICONS/paint-brush.png" alt="color"></button>
+
+                <button style="position: relative;" onclick="onColorBtn()" class="edit-btns color-btn">
+                    <input style="position:absolute;width: 0;height: 0;" class="inputColorText" oninput="onChangedColor(this.value)" type="color">
+                    <img src="ICONS/paint-brush.png" alt="color">
+                </button>
             </section>
 
             <section class="edit-sec-3">
