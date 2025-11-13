@@ -40,24 +40,7 @@ var gMeme = {
     selectedLineIdx: 0,
     imgUrl: "/images/meme-square/7.jpg", //temporery
     lines: [
-        {
-            txt: 'I sometimes eat Falafel',
-            size: 40,
-            color: 'rgb(30,100,50)',
-            fontFamily: 'impact',
-            txtAlign: 'center',
-            x: 300,
-            y: 300,
-        },
-        {
-            txt: 'I hhhhhhhhhsometimes eat Falafel',
-            size: 30,
-            color: 'rgb(30,100,50)',
-            fontFamily: 'impact',
-            txtAlign: 'center',
-            x: gElCanvas.width / 2,
-            y: gElCanvas.height / 2,
-        }
+        getLine()
     ]
 }
 
