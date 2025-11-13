@@ -16,7 +16,7 @@
     display: grid;
     grid-template-columns: repeat(5,1fr);
 
-    >#fontFamiliy{
+    >#fontFamily{
         grid-column: span 3;
     }
 }
