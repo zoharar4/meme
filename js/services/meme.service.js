@@ -38,7 +38,7 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
-    imgUrl: "/images/meme-square/7.jpg", //temporery
+    imgUrl: "images/meme-square/7.jpg", //temporery
     lines: [
         getLine()
     ]
@@ -93,9 +93,7 @@ function changeLineIdx() {
     if (linesLength === (currLineIdx + 1)) {
         console.log('1:', 1)
         gMeme.selectedLineIdx = 0
-        console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
     } else {
-        console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
         gMeme.selectedLineIdx += 1
     }
 }

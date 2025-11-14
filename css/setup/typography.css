@@ -1,15 +1,32 @@
 @font-face {
 font-family: 'Popping';
-    src: url('/fonts/Poppins/Poppins-Light.ttf') format('woff2');
+    src: url('../fonts/Poppins/Poppins-Light.ttf');
     font-weight: 300;
 }
 @font-face {
 font-family: 'Popping';
-    src: url('/fonts/Poppins/Poppins-Regular.ttf') format('woff2');
+    src: url('../fonts/Poppins/Poppins-Regular.ttf');
     font-weight: 400;
 }
 @font-face {
 font-family: 'Popping';
-    src: url('/fonts/Poppins/Poppins-Bold.ttf') format('woff2');
+    src: url('../fonts/Poppins/Poppins-Bold.ttf');
     font-weight: 700;
+}
+
+
+@font-face {
+font-family: 'arimo';
+    src: url('../fonts/arimo/Arimo-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+font-family: 'fredoka';
+    src: url('../fonts/fredoka/Fredoka-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+font-family: 'IBMPlexSans';
+    src: url('../fonts/IBMPlexSans/IBMPlexSansHebrew-Regular.ttf');
+    font-weight: 400;
 }

@@ -5,6 +5,9 @@ const moveStep = 10
 var downloading = false
 
 function onInit() {
+    document.fonts.load('16px "armio"')
+    document.fonts.load('16px "fredoka"')
+    document.fonts.load('16px "IBMPlexSans"')
     renderMemeGallery()
     renderMeme()
 
@@ -32,6 +35,7 @@ function renderMeme() {   //renders the curr meme in the canvas
     }
 
     document.querySelector('#memeTextInput').value = meme.lines[meme.selectedLineIdx].txt
+    document.querySelector('#fontFamily').value = meme.lines[meme.selectedLineIdx].fontFamily
 
     img.onload = () => {
         gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
@@ -121,7 +125,10 @@ function onAddText() {
 }
 
 function onFontFamily(value) {
+    console.log('value:',value)
+    console.log('getMeme():',getMeme())
     getMeme().lines[getMeme().selectedLineIdx].fontFamily = value
+    console.log('getMeme():',getMeme())
     renderMeme()
 
 }
