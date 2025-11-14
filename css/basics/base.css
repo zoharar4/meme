@@ -1,15 +1,10 @@
 
-*,
-*::after,
-*::before{
+*{
     box-sizing: border-box;
-}
-
-html{
-    /* font-family: Popping; */
     font-family:'popping';
     font-weight: 700;
 }
+
 
 body{
     padding: 0;

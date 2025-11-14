@@ -2,8 +2,8 @@
     height: 80px;
     background-image: var(--bgc-1);
     border-radius: 50px;
-    padding: 25px 20px;
     margin: 10px;
+    align-content: center;
 }
 
 .main-nav {
@@ -27,7 +27,6 @@
         cursor: pointer;
         box-shadow: 0 6px 10px rgb(40, 40, 40);
         background-color: white;
-        /* color: transparent; */
         color: black;
     }
 }

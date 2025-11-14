@@ -1,14 +1,16 @@
 
 .meme-editor{
     display: grid;
-    grid-template-columns: repeat(2,max-content);
+    grid-template-columns: auto max-content;
     gap: 50px;
     justify-self: center;
+    width: 100%;
 }
 
 
 .edit-tools{
     display: grid;
+    align-items: center;
 }
 
 

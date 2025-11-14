@@ -30,8 +30,12 @@ canvas {
     }
     &:hover{
         cursor: pointer;
-        opacity: 0.85;
+        filter: brightness(0.8)
     }
+}
+
+.edit-btns:active{
+    filter: brightness(0.5);
 }
 
 .edit-sec-1{

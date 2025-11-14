@@ -5,6 +5,7 @@ const moveStep = 10
 var downloading = false
 
 function onInit() {
+    // changeCanvasSize()
     document.fonts.load('16px "armio"')
     document.fonts.load('16px "fredoka"')
     document.fonts.load('16px "IBMPlexSans"')
@@ -12,6 +13,13 @@ function onInit() {
     renderMeme()
 
 }
+
+// function changeCanvasSize() {
+//     const canvasContainer = document.querySelector('.canvas-container')
+//     gElCanvas.width = canvasContainer.clientWidth - 15
+//     gElCanvas.height = canvasContainer.clientWidth - 15 // ~the padding of the container
+//     renderMeme()
+// }
 
 function renderMemeGallery() {  //renders the gallery
     const imgs = getImgsArray()
@@ -59,17 +67,38 @@ function drawText({ idx, txt, size, color, fontFamily, txtAlign, x, y }) {
 
     if (idx === getMeme().selectedLineIdx && !downloading) {
         const textWidth = gCtx.measureText(txt).width
-        const textHeight = size
         var rectX = x
         if (txtAlign === 'center') rectX = x - textWidth / 2
         else if (txtAlign === 'right') rectX = x - textWidth
         var rectY = y
         gCtx.strokeStyle = 'black'
         gCtx.lineWidth = 3
-        gCtx.setLineDash([6, 4])
-        gCtx.strokeRect(rectX - 5, rectY - 5, textWidth + 10, textHeight + 10)
+        gCtx.setLineDash([10, 5])
+        gCtx.strokeRect(rectX - 5, rectY - 5, textWidth + 10, size + 10)
+        getMeme().lines[idx].rectPos = { x: rectX - 5, y: rectY - 5, x2: rectX - 5 + textWidth + 10, y2: rectY - 5 + size + 10 }
     }
 }
+
+function onCanvasClicked(ev) {
+    const rect = gElCanvas.getBoundingClientRect()
+    const x = ev.clientX - rect.left
+    const y = ev.clientY - rect.top
+    const meme = getMeme()
+    const lineIdx = meme.lines.findIndex(line => {
+        if (x > line.rectPos.x && x < line.rectPos.x2) {
+            if (y > line.rectPos.y && y < line.rectPos.y2) {
+                console.log('clicked a line:')
+                return true
+            }
+        }
+    })
+
+    if (lineIdx >= 0) {
+        getMeme().selectedLineIdx = lineIdx
+        renderMeme()
+    }
+}
+
 
 
 function onTextChanged(txt) {
@@ -125,10 +154,10 @@ function onAddText() {
 }
 
 function onFontFamily(value) {
-    console.log('value:',value)
-    console.log('getMeme():',getMeme())
+    console.log('value:', value)
+    console.log('getMeme():', getMeme())
     getMeme().lines[getMeme().selectedLineIdx].fontFamily = value
-    console.log('getMeme():',getMeme())
+    console.log('getMeme():', getMeme())
     renderMeme()
 
 }

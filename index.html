@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-<body class="main-layout" onload="onInit()">
+<body class="main-layout" onload="onInit()"> <!-- onresize="changeCanvasSize()" -->
     <header class="main-header">
         <div class="logo">Meme Generator</div>
         <nav class="main-nav">
@@ -20,7 +21,7 @@
 
     <section class="meme-editor">
 
-        <div class="canvas-container"><canvas width="450" height="450"></canvas></div>
+        <div class="canvas-container"><canvas onclick="onCanvasClicked(event)" width="500" height="500"></canvas></div>
 
         <div class="edit-tools">
             <input oninput="onTextChanged(this.value)" id="memeTextInput" type="text">
@@ -28,13 +29,14 @@
             <section class="edit-sec-1">
                 <button onclick="onMoveLine('up')" class="edit-btns up-btn"><img src="ICONS/up-arrow.png"
                         alt="switch to next text"></button>
-                <button onclick="onMoveLine('down')" class="edit-btns down-btn"><img style="transform: rotate(180deg);" src="ICONS/up-arrow.png"
-                        alt="switch to next text"></button>
+                <button onclick="onMoveLine('down')" class="edit-btns down-btn"><img style="transform: rotate(180deg);"
+                        src="ICONS/up-arrow.png" alt="switch to next text"></button>
                 <button onclick="onChangeLine()" class="edit-btns switch-btn"><img src="ICONS/switch.png"
                         alt="switch to next text"></button>
                 <button onclick="onAddText()" class="edit-btns add-btn"><img src="ICONS/add.png"
                         alt="add new text"></button>
-                <button onclick="onDeleteLine()" class="edit-btns delete-btn"><img src="ICONS/trash.png" alt="delete text"></button>
+                <button onclick="onDeleteLine()" class="edit-btns delete-btn"><img src="ICONS/trash.png"
+                        alt="delete text"></button>
             </section>
 
             <section class="edit-sec-2">
@@ -54,17 +56,18 @@
                         src="ICONS/align-right.png" alt="align text right"></button>
 
                 <select onchange="onFontFamily(this.value)" id="fontFamily">
-                    <option value="impact">impact</option>
-                    <option value="sans-serif">sans-serif</option>
-                    <option value="fredoka">fredoka</option>
-                    <option value="arimo">arimo</option>
-                    <option value="IBMPlexSans">IBMPlexSans</option>
+                    <option style="font-family:impact;" value="impact">impact</option>
+                    <option style="font-family:sans-serif;" value="sans-serif">sans-serif</option>
+                    <option style="font-family:fredoka;" value="fredoka">fredoka</option>
+                    <option style="font-family:arimo;" value="arimo">arimo</option>
+                    <option style="font-family:IBMPlexSans;" value="IBMPlexSans">IBMPlexSans</option>
                 </select>
 
                 <button class="edit-btns stroke-btn"><img src="ICONS/text-stroke.png" alt="stroke"></button>
 
                 <button style="position: relative;" onclick="onColorBtn()" class="edit-btns color-btn">
-                    <input style="position:absolute;width: 0;height: 0;" class="inputColorText" oninput="onChangedColor(this.value)" type="color">
+                    <input style="position:absolute;width: 0;height: 0;" class="inputColorText"
+                        oninput="onChangedColor(this.value)" type="color">
                     <img src="ICONS/paint-brush.png" alt="color">
                 </button>
             </section>
