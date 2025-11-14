@@ -3,6 +3,7 @@ const gCtx = gElCanvas.getContext('2d')
 const fontSizeStep = 2
 const moveStep = 10
 var downloading = false
+var isGrabing = false
 
 function onInit() {
     // changeCanvasSize()
@@ -53,7 +54,7 @@ function renderMeme() {   //renders the curr meme in the canvas
     }
 }
 
-function drawText({ idx, txt, size, color, fontFamily, txtAlign, x, y }) {
+function drawText({ idx, txt, size, color, rectColor, fontFamily, txtAlign, x, y }) {
     gCtx.lineWidth = 2
 
     gCtx.fillStyle = color
@@ -71,7 +72,7 @@ function drawText({ idx, txt, size, color, fontFamily, txtAlign, x, y }) {
         if (txtAlign === 'center') rectX = x - textWidth / 2
         else if (txtAlign === 'right') rectX = x - textWidth
         var rectY = y
-        gCtx.strokeStyle = 'black'
+        gCtx.strokeStyle = rectColor
         gCtx.lineWidth = 3
         gCtx.setLineDash([10, 5])
         gCtx.strokeRect(rectX - 5, rectY - 5, textWidth + 10, size + 10)
@@ -80,23 +81,20 @@ function drawText({ idx, txt, size, color, fontFamily, txtAlign, x, y }) {
 }
 
 function onCanvasClicked(ev) {
-    const rect = gElCanvas.getBoundingClientRect()
-    const x = ev.clientX - rect.left
-    const y = ev.clientY - rect.top
-    const meme = getMeme()
-    const lineIdx = meme.lines.findIndex(line => {
-        if (x > line.rectPos.x && x < line.rectPos.x2) {
-            if (y > line.rectPos.y && y < line.rectPos.y2) {
-                console.log('clicked a line:')
-                return true
-            }
-        }
-    })
+    console.log('clicked:')
+    canvasClicked(ev)
+}
 
-    if (lineIdx >= 0) {
-        getMeme().selectedLineIdx = lineIdx
-        renderMeme()
-    }
+function onMouseMove(ev) {
+    if (!isGrabing) return
+    mouseMove(ev)
+}
+
+function onMouseUp() {
+    console.log('mouse up/leave:')
+    isGrabing = false
+    document.body.style.cursor = 'default'
+    mouseUp()
 }
 
 

@@ -21,7 +21,11 @@
 
     <section class="meme-editor">
 
-        <div class="canvas-container"><canvas onclick="onCanvasClicked(event)" width="500" height="500"></canvas></div>
+        <div class="canvas-container">
+            <canvas onmousedown="onCanvasClicked(event)" onmousemove="onMouseMove(event)" onmouseup="onMouseUp()" onmouseleave="onMouseUp()" width="500" height="500">
+
+            </canvas>
+        </div>
 
         <div class="edit-tools">
             <input oninput="onTextChanged(this.value)" id="memeTextInput" type="text">

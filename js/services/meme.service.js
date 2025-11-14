@@ -67,6 +67,44 @@ function createGMeme(id) {  //creates the gMeme with default values when img cli
     console.log('gMeme:', gMeme)
 }
 
+function canvasClicked(ev) {
+    const rect = gElCanvas.getBoundingClientRect()
+    const x = ev.clientX - rect.left
+    const y = ev.clientY - rect.top
+    const lineIdx = gMeme.lines.findIndex(line => {
+        if (x > line.rectPos.x && x < line.rectPos.x2) {
+            if (y > line.rectPos.y && y < line.rectPos.y2) {
+                console.log('clicked a line:')
+                return true
+            }
+        }
+    })
+
+    if (lineIdx >= 0) {
+        gMeme.selectedLineIdx = lineIdx
+        renderMeme()
+        isGrabing = true
+        document.body.style.cursor = 'grabbing'
+    }
+}
+
+function mouseMove(ev) {
+    const rect = gElCanvas.getBoundingClientRect()
+    const x = ev.clientX - rect.left
+    const y = ev.clientY - rect.top
+    var currLine = gMeme.lines[gMeme.selectedLineIdx]
+    currLine.txtAlign = 'center'
+    currLine.x = x
+    currLine.y = y
+    currLine.rectColor = 'red'
+    renderMeme() 
+}
+
+function mouseUp() {
+    gMeme.lines[gMeme.selectedLineIdx].rectColor = 'black'
+    renderMeme()
+}
+
 function changeText(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
@@ -91,7 +129,6 @@ function changeLineIdx() {
 
     if (linesLength <= 1) return
     if (linesLength === (currLineIdx + 1)) {
-        console.log('1:', 1)
         gMeme.selectedLineIdx = 0
     } else {
         gMeme.selectedLineIdx += 1
@@ -111,6 +148,7 @@ function getLine() {
         txt: 'text',
         size: 40,
         color: 'white',
+        rectColor: 'black',
         fontFamily: 'impact',
         txtAlign: 'center',
         x: gElCanvas.width / 2,
