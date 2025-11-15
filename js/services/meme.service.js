@@ -94,10 +94,12 @@ function mouseMove(ev) {
     const y = ev.clientY - rect.top
     var currLine = gMeme.lines[gMeme.selectedLineIdx]
     currLine.txtAlign = 'center'
-    currLine.x = x
-    currLine.y = y
+    currLine.relativeX = x / gElCanvas.width
+    currLine.relativeY = y / gElCanvas.height
     currLine.rectColor = 'red'
-    renderMeme() 
+    console.log('currLine.rectColor:',currLine.rectColor)
+    console.log('gMeme:',gMeme)
+    renderMeme()
 }
 
 function mouseUp() {
@@ -115,11 +117,11 @@ function fontSize(action) {
 }
 
 function alignText(direction) {
-    var xPos = gElCanvas.width / 2
-    if (direction === 'left') xPos = 5
-    else if (direction === 'right') xPos = gElCanvas.width - 5
+    var xPos = 0.5
+    if (direction === 'left') xPos = 10 / gElCanvas.width
+    else if (direction === 'right') xPos = gElCanvas.width / (gElCanvas.width + 10)
 
-    gMeme.lines[gMeme.selectedLineIdx].x = xPos
+    gMeme.lines[gMeme.selectedLineIdx].relativeX = xPos
     gMeme.lines[gMeme.selectedLineIdx].txtAlign = direction
 }
 
@@ -151,7 +153,7 @@ function getLine() {
         rectColor: 'black',
         fontFamily: 'impact',
         txtAlign: 'center',
-        x: gElCanvas.width / 2,
-        y: gElCanvas.height / 5,
+        relativeX: 0.5,
+        relativeY: 0.2,
     }
 }

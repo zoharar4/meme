@@ -48,18 +48,19 @@ function renderMeme() {   //renders the curr meme in the canvas
     img.onload = () => {
         gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        console.log('gElCanvas.width:',gElCanvas.width)
-        console.log('gElCanvas.height:',gElCanvas.height)
         meme.lines.forEach((line, idx) => drawText({ idx, ...line }))
     }
 }
 
-function drawText({ idx, txt, size, color, rectColor, fontFamily, txtAlign, x, y }) {
+function drawText({ idx, txt, size, color, rectColor, fontFamily, txtAlign, relativeX, relativeY }) {
+    const x = gElCanvas.width*relativeX
+    const y = gElCanvas.height*relativeY
+    
     gCtx.lineWidth = 2
-
     gCtx.fillStyle = color
     gCtx.font = `${size}px ${fontFamily}`
     gCtx.textAlign = txtAlign
+    gCtx.strokeStyle = 'black'
     gCtx.textBaseline = 'top'
     gCtx.lineJoin = 'round'
     gCtx.setLineDash([])
@@ -73,6 +74,7 @@ function drawText({ idx, txt, size, color, rectColor, fontFamily, txtAlign, x, y
         else if (txtAlign === 'right') rectX = x - textWidth
         var rectY = y
         gCtx.strokeStyle = rectColor
+        console.log(getMeme().selectedLineIdx,rectColor)
         gCtx.lineWidth = 3
         gCtx.setLineDash([10, 5])
         gCtx.strokeRect(rectX - 5, rectY - 5, textWidth + 10, size + 10)
@@ -106,8 +108,10 @@ function onTextChanged(txt) {
 }
 
 function onMoveLine(direction) {
-    if (direction === 'up') getMeme().lines[getMeme().selectedLineIdx].y -= moveStep
-    else getMeme().lines[getMeme().selectedLineIdx].y += moveStep
+    const meme = getMeme()
+    const currLine = meme.lines[meme.selectedLineIdx]
+    if (direction === 'up') currLine.relativeY = (currLine.relativeY*gElCanvas.height - moveStep)/gElCanvas.height
+    else currLine.relativeY = (currLine.relativeY*gElCanvas.height + moveStep)/gElCanvas.height
 
     renderMeme()
 }
