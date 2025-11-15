@@ -32,6 +32,7 @@ function onClickedImg(id) {     //in the gallery
     changeCanvasSize()
     createGMeme(id)      // create the gMeme
     renderMeme()
+    window.scrollTo({top: 0,behavior: 'smooth'})
 }
 
 function renderMeme() {   //renders the curr meme in the canvas
