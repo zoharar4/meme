@@ -12,7 +12,6 @@ function onInit() {
     renderMemeGallery()
     renderMeme()
     changeCanvasSize()
-    setTimeout(changeCanvasSize,100)
 }
 
 function changeCanvasSize() {
@@ -34,28 +33,31 @@ function onClickedImg(id) {     //in the gallery
 }
 
 function renderMeme() {   //renders the curr meme in the canvas
-    const meme = getMeme()
-    const img = new Image()
-    img.src = meme.imgUrl
-    
-    if (!meme.lines.length) {
-        addText()
-    }
-    
-    document.querySelector('#memeTextInput').value = meme.lines[meme.selectedLineIdx].txt
-    document.querySelector('#fontFamily').value = meme.lines[meme.selectedLineIdx].fontFamily
-    
-    img.onload = () => {
-        gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
-        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        meme.lines.forEach((line, idx) => drawText({ idx, ...line }))
-    }
+    return new Promise(resolve => {
+        const meme = getMeme()
+        const img = new Image()
+        img.src = meme.imgUrl
+
+        if (!meme.lines.length) {
+            addText()
+        }
+
+        document.querySelector('#memeTextInput').value = meme.lines[meme.selectedLineIdx].txt
+        document.querySelector('#fontFamily').value = meme.lines[meme.selectedLineIdx].fontFamily
+
+        img.onload = () => {
+            gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
+            gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+            meme.lines.forEach((line, idx) => drawText({ idx, ...line }))
+            resolve()
+        }
+    })
 }
 
 function drawText({ idx, txt, size, color, rectColor, fontFamily, txtAlign, relativeX, relativeY }) {
-    const x = gElCanvas.width*relativeX
-    const y = gElCanvas.height*relativeY
-    
+    const x = gElCanvas.width * relativeX
+    const y = gElCanvas.height * relativeY
+
     gCtx.lineWidth = 2
     gCtx.fillStyle = color
     gCtx.font = `${size}px ${fontFamily}`
@@ -74,7 +76,7 @@ function drawText({ idx, txt, size, color, rectColor, fontFamily, txtAlign, rela
         else if (txtAlign === 'right') rectX = x - textWidth
         var rectY = y
         gCtx.strokeStyle = rectColor
-        console.log(getMeme().selectedLineIdx,rectColor)
+        console.log(getMeme().selectedLineIdx, rectColor)
         gCtx.lineWidth = 3
         gCtx.setLineDash([10, 5])
         gCtx.strokeRect(rectX - 5, rectY - 5, textWidth + 10, size + 10)
@@ -83,7 +85,6 @@ function drawText({ idx, txt, size, color, rectColor, fontFamily, txtAlign, rela
 }
 
 function onCanvasClicked(ev) {
-    console.log('clicked:')
     canvasClicked(ev)
 }
 
@@ -110,8 +111,8 @@ function onTextChanged(txt) {
 function onMoveLine(direction) {
     const meme = getMeme()
     const currLine = meme.lines[meme.selectedLineIdx]
-    if (direction === 'up') currLine.relativeY = (currLine.relativeY*gElCanvas.height - moveStep)/gElCanvas.height
-    else currLine.relativeY = (currLine.relativeY*gElCanvas.height + moveStep)/gElCanvas.height
+    if (direction === 'up') currLine.relativeY = (currLine.relativeY * gElCanvas.height - moveStep) / gElCanvas.height
+    else currLine.relativeY = (currLine.relativeY * gElCanvas.height + moveStep) / gElCanvas.height
 
     renderMeme()
 }
@@ -120,7 +121,6 @@ function onDeleteLine() {
     getMeme().lines.splice(getMeme().selectedLineIdx, 1)
     getMeme().selectedLineIdx = 0
     renderMeme()
-    console.log('getMeme():', getMeme())
 }
 
 function onFontSize(action) {
@@ -157,38 +157,56 @@ function onAddText() {
 }
 
 function onFontFamily(value) {
-    console.log('value:', value)
-    console.log('getMeme():', getMeme())
     getMeme().lines[getMeme().selectedLineIdx].fontFamily = value
-    console.log('getMeme():', getMeme())
     renderMeme()
 
 }
 
-function onDownloadCanvas() {
+async function onDownloadCanvas() {
     downloading = true
-    renderMeme()
-    setTimeout(function () {
-        const link = document.createElement("a")
-        const url = gElCanvas.toDataURL()
-        link.href = url
-        link.download = 'image'
-        link.click()
-        downloading = false
-        renderMeme()
-    }, 1000)
-}
-
-function onShare() {
-    downloading = true
-    renderMeme()
+    await renderMeme()
+    const link = document.createElement("a")
     const url = gElCanvas.toDataURL()
-    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-    setTimeout(function () {
-        console.log(url)
-        console.log(shareUrl)
-        window.open(shareUrl, "_blank", "width=600,height=400");
-        downloading = false
-        renderMeme()
-    }, 1000)
+    link.href = url
+    link.download = 'image'
+    link.click()
+    downloading = false
+    renderMeme()
+}
+
+async function uploadImg() {
+    downloading = true
+    await renderMeme()
+    // setTimeout(() => {
+    const url = gElCanvas.toDataURL("image/jpeg")
+    const apiUrl = "https://api.cloudinary.com/v1_1/dlmqcvdud/image/upload"
+    const preset = "memeGenerator"
+
+
+    const formData = new FormData()
+    formData.append("file", url)
+    formData.append("upload_preset", preset)
+
+    const res = await fetch(apiUrl, {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await res.json()
+    return data.secure_url
+    // })
+}
+
+function shareToFacebook(imageUrl) {
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(imageUrl)}`
+    window.open(shareUrl, "_blank", "width=600,height=500")
+}
+
+async function onFacebookShare() {
+    try {
+        const url = await uploadImg()
+        shareToFacebook(url)
+    } catch (err) {
+        alert("1")
+    }
 }
