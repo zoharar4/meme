@@ -1,7 +1,7 @@
 
 .meme-editor{
     display: grid;
-    grid-template-columns: auto max-content;
+    grid-template-columns: minmax(400px,auto) max-content;
     gap: 50px;
     justify-self: center;
     width: 100%;

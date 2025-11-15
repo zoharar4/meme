@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-<body class="main-layout" onload="onInit()"> <!-- onresize="changeCanvasSize()" -->
+<body class="main-layout" onload="onInit()" onresize="changeCanvasSize()">
     <header class="main-header">
         <div class="logo">Meme Generator</div>
         <nav class="main-nav">
@@ -21,8 +21,9 @@
 
     <section class="meme-editor">
 
-        <div class="canvas-container">
-            <canvas onmousedown="onCanvasClicked(event)" onmousemove="onMouseMove(event)" onmouseup="onMouseUp()" onmouseleave="onMouseUp()" width="500" height="500">
+        <div  class="canvas-container">
+            <canvas onmousedown="onCanvasClicked(event)" onmousemove="onMouseMove(event)" onmouseup="onMouseUp()"
+                onmouseleave="onMouseUp()">
 
             </canvas>
         </div>
@@ -81,7 +82,7 @@
             </section>
 
             <section class="edit-sec-4">
-                <button class="edit-btns share-btn">Share</button>
+                <button onclick="onShare()" class="edit-btns share-btn">Share to facebook</button>
                 <button onclick="onDownloadCanvas()" class="edit-btns download-btn">Download</button>
             </section>
         </div>

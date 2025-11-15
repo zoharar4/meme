@@ -6,21 +6,20 @@ var downloading = false
 var isGrabing = false
 
 function onInit() {
-    // changeCanvasSize()
     document.fonts.load('16px "armio"')
     document.fonts.load('16px "fredoka"')
     document.fonts.load('16px "IBMPlexSans"')
     renderMemeGallery()
     renderMeme()
-
+    changeCanvasSize()
+    setTimeout(changeCanvasSize,100)
 }
 
-// function changeCanvasSize() {
-//     const canvasContainer = document.querySelector('.canvas-container')
-//     gElCanvas.width = canvasContainer.clientWidth - 15
-//     gElCanvas.height = canvasContainer.clientWidth - 15 // ~the padding of the container
-//     renderMeme()
-// }
+function changeCanvasSize() {
+    const canvasContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = canvasContainer.clientWidth - 10
+    renderMeme()
+}
 
 function renderMemeGallery() {  //renders the gallery
     const imgs = getImgsArray()
@@ -38,18 +37,19 @@ function renderMeme() {   //renders the curr meme in the canvas
     const meme = getMeme()
     const img = new Image()
     img.src = meme.imgUrl
-
+    
     if (!meme.lines.length) {
         addText()
     }
-
+    
     document.querySelector('#memeTextInput').value = meme.lines[meme.selectedLineIdx].txt
     document.querySelector('#fontFamily').value = meme.lines[meme.selectedLineIdx].fontFamily
-
+    
     img.onload = () => {
         gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-
+        console.log('gElCanvas.width:',gElCanvas.width)
+        console.log('gElCanvas.height:',gElCanvas.height)
         meme.lines.forEach((line, idx) => drawText({ idx, ...line }))
     }
 }
@@ -91,6 +91,7 @@ function onMouseMove(ev) {
 }
 
 function onMouseUp() {
+    if (isGrabing === false) return
     console.log('mouse up/leave:')
     isGrabing = false
     document.body.style.cursor = 'default'
@@ -169,6 +170,20 @@ function onDownloadCanvas() {
         link.href = url
         link.download = 'image'
         link.click()
+        downloading = false
+        renderMeme()
+    }, 1000)
+}
+
+function onShare() {
+    downloading = true
+    renderMeme()
+    const url = gElCanvas.toDataURL()
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+    setTimeout(function () {
+        console.log(url)
+        console.log(shareUrl)
+        window.open(shareUrl, "_blank", "width=600,height=400");
         downloading = false
         renderMeme()
     }, 1000)
