@@ -12,6 +12,7 @@
     background-color: var(--color-2);
     border-radius: 15px;
     padding: 5px;
+    height: max-content;
     padding-bottom: 0;
 }
 
