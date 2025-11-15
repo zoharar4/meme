@@ -28,6 +28,8 @@ function renderMemeGallery() {  //renders the gallery
 }
 
 function onClickedImg(id) {     //in the gallery
+    document.querySelector('.meme-editor').style.display = ''
+    changeCanvasSize()
     createGMeme(id)      // create the gMeme
     renderMeme()
 }

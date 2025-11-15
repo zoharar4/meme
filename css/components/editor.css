@@ -4,6 +4,8 @@
     border-radius: 15px;
     text-align: center;
     border: 2px rgb(30, 134, 114) solid;
+    max-height: 500px;
+    max-width: 700px;
     *{
       border: 0;  
     }
@@ -23,8 +25,8 @@ canvas {
 }
 
 .edit-btns {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 10px;
     margin: 10px;
     box-shadow: 0 4px 2px;
@@ -93,7 +95,7 @@ canvas {
 
 #fontFamily {
     font-size: medium;
-    height: 45px;
+    height: 55px;
     border-radius: 10px;
     margin: 10px;
     box-shadow: 0 4px 2px;
