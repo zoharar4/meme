@@ -64,7 +64,6 @@ function createGMeme(id) {  //creates the gMeme with default values when img cli
             getLine()
         ]
     }
-    console.log('gMeme:', gMeme)
 }
 
 function canvasClicked(ev) {
@@ -74,7 +73,6 @@ function canvasClicked(ev) {
     const lineIdx = gMeme.lines.findIndex(line => {
         if (x > line.rectPos.x && x < line.rectPos.x2) {
             if (y > line.rectPos.y && y < line.rectPos.y2) {
-                console.log('clicked a line:')
                 return true
             }
         }
@@ -97,8 +95,6 @@ function mouseMove(ev) {
     currLine.relativeX = x / gElCanvas.width
     currLine.relativeY = y / gElCanvas.height
     currLine.rectColor = 'red'
-    console.log('currLine.rectColor:',currLine.rectColor)
-    console.log('gMeme:',gMeme)
     renderMeme()
 }
 

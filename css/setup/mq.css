@@ -1,6 +1,10 @@
 @media (max-width:950px) {
+    .main-layout{
+        grid-template-columns: minmax(2px, 1fr) minmax(auto, 1200px) minmax(2px, 1fr);
+    }
+
     .meme-editor {
-        grid-template-columns:15px minmax(100px,1fr) 15px;
+        grid-template-columns:1px minmax(100px,1fr) 1px;
         grid-template-rows: minmax(400px, 1fr) minmax(400px, 1fr) ;
         gap: 5px;
         >.canvas-container{
@@ -8,6 +12,7 @@
         }
         >.edit-tools{
             grid-column: 2/3;
+            padding: 5px;
         }
     }
 }

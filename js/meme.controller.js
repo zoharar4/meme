@@ -76,7 +76,6 @@ function drawText({ idx, txt, size, color, rectColor, fontFamily, txtAlign, rela
         else if (txtAlign === 'right') rectX = x - textWidth
         var rectY = y
         gCtx.strokeStyle = rectColor
-        console.log(getMeme().selectedLineIdx, rectColor)
         gCtx.lineWidth = 3
         gCtx.setLineDash([10, 5])
         gCtx.strokeRect(rectX - 5, rectY - 5, textWidth + 10, size + 10)

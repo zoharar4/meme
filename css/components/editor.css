@@ -1,14 +1,16 @@
 .edit-tools {
     background-color: var(--color-2);
-    padding: 20px 40px;
+    padding: 20px 30px;
     border-radius: 15px;
     text-align: center;
+    border: 2px rgb(30, 134, 114) solid;
     *{
       border: 0;  
     }
 }
 
 .canvas-container {
+    border: 2px rgb(30, 134, 114) solid;
     background-color: var(--color-2);
     border-radius: 15px;
     padding: 5px;
@@ -21,8 +23,8 @@ canvas {
 }
 
 .edit-btns {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 10px;
     margin: 10px;
     box-shadow: 0 4px 2px;
@@ -83,7 +85,8 @@ canvas {
 
 #memeTextInput {
     font-size: large;
-    height: 40px;
+    min-height: 40px;
+    height: 60%;
     border-radius: 10px;
     box-shadow: 0 4px 2px;
 }
