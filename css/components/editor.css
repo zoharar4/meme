@@ -1,23 +1,21 @@
 .edit-tools {
-    background-color: var(--color-2);
+    background-color: var(--color-1);
     padding: 20px 30px;
     border-radius: 15px;
     text-align: center;
-    border: 2px rgb(30, 134, 114) solid;
-    /* max-height: 500px; */
-    max-width: 700px;
+    border: 2px black solid;
     *{
       border: 0;  
     }
 }
 
 .canvas-container {
-    border: 2px rgb(30, 134, 114) solid;
-    background-color: var(--color-2);
+    border: 2px black solid;
+    background-color: var(--color-1);
     border-radius: 15px;
     padding: 5px;
-    height: max-content;
     padding-bottom: 0;
+    height: max-content;
 }
 
 canvas {
@@ -28,7 +26,7 @@ canvas {
     width: 55px;
     height: 55px;
     border-radius: 10px;
-    margin: 10px;
+    margin:10px;
     box-shadow: 0 4px 2px;
     >img {
         width: 100%;
@@ -57,7 +55,7 @@ canvas {
 
 
 .edit-sec-2{
-    background-color: rgb(25,165,160);
+    background-color: rgb(65, 66, 66);
     border-radius: 10px;
 }
 
@@ -73,16 +71,24 @@ canvas {
 
 .edit-sec-4{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3,minmax(max-content,1fr));
 
     >.share-btn{
         width: auto;
         font-size: clamp(16px, 10vw, 40px);
         background-color: rgb(30, 125, 210);
     }
+    
     >.download-btn{
         width: auto;
+        font-size: clamp(16px, 10vw, 40px);
         background-color: rgb(140, 70, 190);
+    }
+    
+    >.save-btn{
+        width: auto;
+        font-size: clamp(16px, 10vw, 40px);
+        background-color: rgb(60, 200, 80);
     }
 }
 

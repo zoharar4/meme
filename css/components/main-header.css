@@ -3,14 +3,16 @@
     top: 0;
     z-index: 1;
     height: 70px;
-    background-image: var(--bgc-1);
-    border-radius: 15px;
-    margin: 10px;
+    background-color: var(--color-1);
+    border-radius: 0 0 20px 20px;
+    border: 2px rgb(0, 0, 0) solid;
+    margin-bottom: 10px;
     align-content: center;
 }
 
 .main-nav {
     text-align: end;
+    transition: .3s;
 }
 
 .gallery-btn,
@@ -36,4 +38,20 @@
 
 .logo {
     font-size: 27px;
+    color: white;
+}
+
+.burger-menu {
+    display: none;
+    width: 40px;
+    justify-self: right;
+    background-color:transparent;
+    border: 2px white solid;
+    color: white;
+    font-size: x-large;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.7;
+    }
+    
 }

@@ -11,16 +11,14 @@ function onInit() {
     document.fonts.load('16px "IBMPlexSans"')
     shuffleImgs()
     renderMemeGallery()
+    setTimeout(changeCanvasSize,10)
     renderMeme()
-    changeCanvasSize()
 }
 
-
-
 function changeCanvasSize() {
-    const canvasContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = canvasContainer.clientWidth - 10
-    renderMeme()
+        const canvasContainer = document.querySelector('.canvas-container')
+        gElCanvas.width = canvasContainer.clientWidth - 10
+        renderMeme()
 }
 
 function renderMemeGallery() {  //renders the gallery
@@ -106,8 +104,6 @@ function onMouseUp() {
     mouseUp()
 }
 
-
-
 function onTextChanged(txt) {
     changeText(txt)
     renderMeme()
@@ -167,6 +163,10 @@ function onFontFamily(value) {
 
 }
 
+function saveClientMeme() {
+    
+}
+
 async function onDownloadCanvas() {
     downloading = true
     await renderMeme()
@@ -182,7 +182,7 @@ async function onDownloadCanvas() {
 async function uploadImg() {
     downloading = true
     await renderMeme()
-    // setTimeout(() => {
+
     const url = gElCanvas.toDataURL("image/jpeg")
     const apiUrl = "https://api.cloudinary.com/v1_1/dlmqcvdud/image/upload"
     const preset = "memeGenerator"
@@ -195,11 +195,10 @@ async function uploadImg() {
     const res = await fetch(apiUrl, {
         method: "POST",
         body: formData
-    });
+    })
 
     const data = await res.json()
     return data.secure_url
-    // })
 }
 
 function shareToFacebook(imageUrl) {
@@ -212,6 +211,14 @@ async function onFacebookShare() {
         const url = await uploadImg()
         shareToFacebook(url)
     } catch (err) {
-        alert("1")
+        alert(err)
     }
+}
+
+function onBurgerMenu(button) {
+    const nav = document.querySelector('.main-nav')
+    button.classList.toggle('active')
+    button.textContent = button.classList.contains('active') ? '✖' : '☰'
+    nav.style.right = button.classList.contains('active') ? '0px' : '-315px'
+    nav.style.display = button.classList.contains('active') ? 'flex' : 'none'
 }

@@ -7,11 +7,13 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://kit.fontawesome.com/f0ad057954.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="main-layout" onload="onInit()" onresize="changeCanvasSize()">
     <header class="main-header">
         <div class="logo">Meme Generator</div>
+        <button class="burger-menu" onclick="onBurgerMenu(this)">☰</button>
         <nav class="main-nav">
             <button class="memes-btn">Your Memes</button>
             <button class="gallery-btn">Gallery</button>
@@ -19,7 +21,7 @@
         </nav>
     </header>
 
-    <section style="display: none;" class="meme-editor">
+    <section class="meme-editor">
 
         <div class="canvas-container">
             <canvas onmousedown="onCanvasClicked(event)" onmousemove="onMouseMove(event)" onmouseup="onMouseUp()"
@@ -81,8 +83,18 @@
             </section>
 
             <section class="edit-sec-4">
-                <button onclick="onFacebookShare()" class="edit-btns share-btn fa-brands fa-square-facebook"></button>
-                <button onclick="onDownloadCanvas()" class="edit-btns download-btn">Download</button>
+                <button onclick="onFacebookShare()" class="edit-btns share-btn">
+                    <i class="fa-solid fa-share"></i>
+                    <i class="fa-brands fa-square-facebook"></i>
+                </button>
+
+                <button onclick="onDownloadCanvas()" class="edit-btns download-btn">
+                    <i class="fa-solid fa-download"></i>
+                </button>
+
+                <button onclick="saveClientMeme()" class="edit-btns save-btn">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </button>
             </section>
         </div>
     </section>
@@ -102,9 +114,9 @@
         </div>
     </section>
 
-    <script src="js/meme.controller.js"></script>
     <script src="js/services/meme.service.js"></script>
-    <script src="https://kit.fontawesome.com/f0ad057954.js" crossorigin="anonymous"></script>
+    <script src="js/meme.controller.js"></script>
+    
 </body>
 
 </html>

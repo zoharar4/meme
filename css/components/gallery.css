@@ -1,6 +1,6 @@
 .gallery {
-    border: 2px rgb(30, 134, 114) solid;
-    background-color: var(--color-2);
+    border: 2px black solid;
+    background-color: var(--color-1);
     padding: 20px;
     margin-top: 20px;
     border-radius: 20px;
