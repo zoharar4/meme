@@ -9,10 +9,13 @@ function onInit() {
     document.fonts.load('16px "armio"')
     document.fonts.load('16px "fredoka"')
     document.fonts.load('16px "IBMPlexSans"')
+    shuffleImgs()
     renderMemeGallery()
     renderMeme()
     changeCanvasSize()
 }
+
+
 
 function changeCanvasSize() {
     const canvasContainer = document.querySelector('.canvas-container')
@@ -32,7 +35,7 @@ function onClickedImg(id) {     //in the gallery
     changeCanvasSize()
     createGMeme(id)      // create the gMeme
     renderMeme()
-    window.scrollTo({top: 0,behavior: 'smooth'})
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 function renderMeme() {   //renders the curr meme in the canvas

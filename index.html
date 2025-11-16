@@ -13,18 +13,17 @@
     <header class="main-header">
         <div class="logo">Meme Generator</div>
         <nav class="main-nav">
+            <button class="memes-btn">Your Memes</button>
             <button class="gallery-btn">Gallery</button>
-            <button class="memes-btn">Memes</button>
             <button class="about-btn">About</button>
         </nav>
     </header>
 
     <section style="display: none;" class="meme-editor">
 
-        <div  class="canvas-container">
+        <div class="canvas-container">
             <canvas onmousedown="onCanvasClicked(event)" onmousemove="onMouseMove(event)" onmouseup="onMouseUp()"
                 onmouseleave="onMouseUp()">
-
             </canvas>
         </div>
 
@@ -82,7 +81,7 @@
             </section>
 
             <section class="edit-sec-4">
-                <button onclick="onFacebookShare()" class="edit-btns share-btn">Share to facebook</button>
+                <button onclick="onFacebookShare()" class="edit-btns share-btn fa-brands fa-square-facebook"></button>
                 <button onclick="onDownloadCanvas()" class="edit-btns download-btn">Download</button>
             </section>
         </div>
@@ -105,6 +104,7 @@
 
     <script src="js/meme.controller.js"></script>
     <script src="js/services/meme.service.js"></script>
+    <script src="https://kit.fontawesome.com/f0ad057954.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

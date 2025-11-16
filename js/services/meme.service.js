@@ -35,6 +35,8 @@ var gImgs = [
     { id: 34, url: "images/meme-imgs-2/17.jpg", keywords: ['funny', 'cat'] },
 ]
 
+var clientMemes = []
+
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
@@ -140,7 +142,6 @@ function addText() {
     renderMeme()
 }
 
-
 function getLine() {
     return {
         txt: 'text',
@@ -152,4 +153,8 @@ function getLine() {
         relativeX: 0.5,
         relativeY: 0.2,
     }
+}
+
+function shuffleImgs() {
+    gImgs.sort(() => Math.random() - 0.5)
 }

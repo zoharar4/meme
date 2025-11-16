@@ -4,7 +4,7 @@
     border-radius: 15px;
     text-align: center;
     border: 2px rgb(30, 134, 114) solid;
-    max-height: 500px;
+    /* max-height: 500px; */
     max-width: 700px;
     *{
       border: 0;  
@@ -77,6 +77,7 @@ canvas {
 
     >.share-btn{
         width: auto;
+        font-size: clamp(16px, 10vw, 40px);
         background-color: rgb(30, 125, 210);
     }
     >.download-btn{

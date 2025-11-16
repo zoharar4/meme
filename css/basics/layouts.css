@@ -14,7 +14,7 @@
 .main-header {
     grid-column: 1/-1;
     display: grid;
-    grid-template-columns: minmax(16px, 1fr) minmax(auto, 300px) minmax(auto, 900px) minmax(16px, 1fr);
+    grid-template-columns: minmax(16px, 1fr) minmax(auto, max-content) minmax(auto, 900px) minmax(16px, 1fr);
 }
 
 .logo {
@@ -22,7 +22,7 @@
 }
 
 .main-nav {
-    grid-column: 3
+    grid-column: 3;
 }
 
 .categories{
@@ -32,9 +32,16 @@
 }
 
 .gallery-imgs {
+   columns: 200px 5;
+   gap: 15px;
+   >.gallery-img{
+    margin-bottom: 10px;
+   }
+}
+/* .gallery-imgs {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
     justify-items: center;
-}
+} */

@@ -1,7 +1,10 @@
 .main-header {
-    height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 70px;
     background-image: var(--bgc-1);
-    border-radius: 50px;
+    border-radius: 15px;
     margin: 10px;
     align-content: center;
 }
@@ -14,9 +17,8 @@
 .memes-btn,
 .about-btn {
     color: white;
-    padding: 0;
+    padding: 10px;
     height: 100%;
-    width: 90px;
     border-radius: 25px;
     font-size: 16px;
     background-color: transparent;
