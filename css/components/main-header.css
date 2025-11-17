@@ -12,6 +12,8 @@
 
 .main-nav {
     text-align: end;
+    display: flex;
+    justify-self: right;
     transition: .3s;
 }
 

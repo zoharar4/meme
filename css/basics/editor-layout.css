@@ -4,6 +4,7 @@
     grid-template-columns: minmax(400px,auto) max-content;
     gap: 35px;
     justify-self: center;
+    margin-top: 30px;
     
     width: 100%;
 }

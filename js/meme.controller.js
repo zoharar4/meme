@@ -35,18 +35,19 @@ function renderMemeGallery() {  //renders the gallery
 }
 
 function onUserGallery() {
+    onBurgerMenu(document.querySelector('.burger-menu'))
     memeEditor.style.display = 'none'
     gallery.style.display = 'none'
     savedMemesGallery.style.display = ''
 
     var savedMemes = loadFromStorage(KEY)
-    if(savedMemes.length) {
+    if (savedMemes.length) {
         renderSavedMemes(savedMemes)
         document.querySelector('.saved-memes').classList.add('no-msg')
-    }else{
+    } else {
         document.querySelector('.saved-memes').classList.remove('no-msg')
     }
-    console.log('savedMemes:',savedMemes)
+    console.log('savedMemes:', savedMemes)
 }
 
 function renderSavedMemes(memeArr) {
@@ -62,10 +63,11 @@ function onClickedImg(id) {     //in the gallery
     changeCanvasSize()
     createGMeme(id)      // create the gMeme
     renderMeme()
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 function onGalleryClicked() {
+    onBurgerMenu(document.querySelector('.burger-menu'))
     document.querySelector('.meme-editor').style.display = 'none'
     document.querySelector('.gallery').style.display = ''
     document.querySelector('.saved-memes').style.display = 'none'
@@ -198,6 +200,18 @@ function onFontFamily(value) {
 
 }
 
+function onClickedSaveImg(idx) {
+    memeEditor.style.display = ''
+    gallery.style.display = 'none'
+    savedMemesGallery.style.display = 'none'
+    const savedMemes = loadFromStorage(KEY)
+    console.log('id,savedMemes:', idx, savedMemes)
+    gMeme = savedMemes[idx].gMeme
+    renderMeme()
+    changeCanvasSize()
+
+}
+
 function onSaveClientMeme() {
     saveClientMeme()
 }
@@ -254,9 +268,11 @@ async function onFacebookShare() {
 
 function onBurgerMenu(button) {
     const nav = document.querySelector('.main-nav')
-    button.classList.toggle('active')
-    button.textContent = button.classList.contains('active') ? '✖' : '☰'
-    nav.style.right = button.classList.contains('active') ? '0px' : '-315px'
-    nav.style.display = button.classList.contains('active') ? 'flex' : 'none'
+    if (nav.classList.contains('active')) {
+        nav.classList.replace('active', 'not-active')
+    } else {
+        nav.classList.replace('not-active', 'active')
+    }
+    button.textContent = nav.classList.contains('active') ? '✖' : '☰'
 }
 

@@ -11,3 +11,15 @@ body{
     margin: 0;
     background-color: var(--color-2);
 }
+
+.active{
+    content: ✖;
+    right: 0;
+    display: flex;
+}
+
+.not-active{
+    content: ☰;
+    right: -315px;
+    display: none;
+}

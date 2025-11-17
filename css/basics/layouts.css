@@ -44,7 +44,7 @@
 
 .saved-memes.no-msg{
     display: grid;
-    grid-template-columns: repeat(5,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     columns: 200px 4;
     gap: 15px;
     >.gallery-img{

@@ -15,8 +15,8 @@ var gImgs = [
     { id: 14, url: "images/meme-square/14.jpg", keywords: ['funny', 'cat'] },
     { id: 15, url: "images/meme-square/15.jpg", keywords: ['funny', 'cat'] },
     { id: 16, url: "images/meme-square/16.jpg", keywords: ['funny', 'cat'] },
-    { id: 18, url: "images/meme-imgs-2/18.jpg", keywords: ['funny', 'cat'] },
     { id: 17, url: "images/meme-square/17.jpg", keywords: ['funny', 'cat'] },
+    { id: 18, url: "images/meme-imgs-2/18.jpg", keywords: ['funny', 'cat'] },
     { id: 19, url: "images/meme-imgs-2/1.jpg", keywords: ['funny', 'trump'] },
     { id: 20, url: "images/meme-imgs-2/2.jpg", keywords: ['funny', 'animal'] },
     { id: 21, url: "images/meme-imgs-2/3.jpg", keywords: ['baby', 'cat'] },
@@ -34,8 +34,6 @@ var gImgs = [
     { id: 33, url: "images/meme-imgs-2/16.jpg", keywords: ['funny', 'cat'] },
     { id: 34, url: "images/meme-imgs-2/17.jpg", keywords: ['funny', 'cat'] },
 ]
-
-var clientMemes = []
 
 var gMeme = {
     selectedImgId: 5,

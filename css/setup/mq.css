@@ -1,11 +1,11 @@
-
 @media (max-width:1100px) {
     .meme-editor {
-        gap:20px;
+        gap: 20px;
 
-        .edit-tools{
+        .edit-tools {
             padding: 10px;
         }
+
         #fontFamily {
             font-size: medium;
         }
@@ -18,15 +18,20 @@
         grid-template-columns: minmax(30px, 1fr) minmax(auto, 700px) minmax(30px, 1fr);
     }
 
+    .main-nav {
+        display: flex;
+        justify-self: right;
+    }
+
     .meme-editor {
-        grid-template-columns: minmax(350,auto);
+        grid-template-columns: minmax(350, auto);
         grid-auto-flow: column;
         gap: 5px;
 
         >.canvas-container {
             grid-row: 1;
         }
-        
+
         >.edit-tools {
             grid-row: 2;
             padding: 5px;
@@ -35,7 +40,7 @@
 }
 
 @media (max-width:620px) {
-    .main-header{
+    .main-header {
         position: relative;
     }
 
@@ -44,17 +49,16 @@
         height: 50px;
     }
 
-    .main-nav{
-        display: none;
+    .main-nav {
         flex-direction: column;
         position: absolute;
         top: 70px;
         right: -315px;
         border: 2px solid;
-        
+
         background-color: var(--color-1);
-        
-        >button{
+
+        >button {
             padding: 10px 15px;
             border-radius: 0;
             border: 1px solid black;
@@ -66,5 +70,19 @@
         grid-column: 3;
 
     }
+
+    .active{
+        right: 0;
+        display: flex;
+    }
+    .not-active{
+        right: -315;
+        display: none;
+    }
 }
 
+@media (max-width:450px) {
+    .main-layout {
+        grid-template-columns: 4px auto 4px;
+    }
+}
