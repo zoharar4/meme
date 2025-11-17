@@ -1,9 +1,15 @@
 const gElCanvas = document.querySelector('canvas')
 const gCtx = gElCanvas.getContext('2d')
+const memeEditor = document.querySelector('.meme-editor')
+const gallery = document.querySelector('.gallery')
+const savedMemesGallery = document.querySelector('.saved-memes')
+
 const fontSizeStep = 2
 const moveStep = 10
 var downloading = false
 var isGrabing = false
+
+const KEY = 'userMemes'
 
 function onInit() {
     document.fonts.load('16px "armio"')
@@ -11,14 +17,14 @@ function onInit() {
     document.fonts.load('16px "IBMPlexSans"')
     shuffleImgs()
     renderMemeGallery()
-    setTimeout(changeCanvasSize,10)
+    setTimeout(changeCanvasSize, 10)
     renderMeme()
 }
 
 function changeCanvasSize() {
-        const canvasContainer = document.querySelector('.canvas-container')
-        gElCanvas.width = canvasContainer.clientWidth - 10
-        renderMeme()
+    const canvasContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = canvasContainer.clientWidth - 10
+    renderMeme()
 }
 
 function renderMemeGallery() {  //renders the gallery
@@ -28,12 +34,41 @@ function renderMemeGallery() {  //renders the gallery
     gallery.innerHTML = strHTML
 }
 
+function onUserGallery() {
+    memeEditor.style.display = 'none'
+    gallery.style.display = 'none'
+    savedMemesGallery.style.display = ''
+
+    var savedMemes = loadFromStorage(KEY)
+    if(savedMemes.length) {
+        renderSavedMemes(savedMemes)
+        document.querySelector('.saved-memes').classList.add('no-msg')
+    }else{
+        document.querySelector('.saved-memes').classList.remove('no-msg')
+    }
+    console.log('savedMemes:',savedMemes)
+}
+
+function renderSavedMemes(memeArr) {
+    var strHTML = memeArr.map((meme, idx) => `<img onclick="onClickedSaveImg(${idx})"
+     class="gallery-img" src="${meme.url}"></img>`).join("")
+    document.querySelector('.saved-memes').innerHTML = strHTML
+}
+
 function onClickedImg(id) {     //in the gallery
-    document.querySelector('.meme-editor').style.display = ''
+    memeEditor.style.display = ''
+    gallery.style.display = 'none'
+    savedMemesGallery.style.display = 'none'
     changeCanvasSize()
     createGMeme(id)      // create the gMeme
     renderMeme()
     window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function onGalleryClicked() {
+    document.querySelector('.meme-editor').style.display = 'none'
+    document.querySelector('.gallery').style.display = ''
+    document.querySelector('.saved-memes').style.display = 'none'
 }
 
 function renderMeme() {   //renders the curr meme in the canvas
@@ -163,8 +198,8 @@ function onFontFamily(value) {
 
 }
 
-function saveClientMeme() {
-    
+function onSaveClientMeme() {
+    saveClientMeme()
 }
 
 async function onDownloadCanvas() {
@@ -196,6 +231,8 @@ async function uploadImg() {
         method: "POST",
         body: formData
     })
+    downloading = false
+    renderMeme()
 
     const data = await res.json()
     return data.secure_url
@@ -222,3 +259,4 @@ function onBurgerMenu(button) {
     nav.style.right = button.classList.contains('active') ? '0px' : '-315px'
     nav.style.display = button.classList.contains('active') ? 'flex' : 'none'
 }
+

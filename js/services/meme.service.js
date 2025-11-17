@@ -155,6 +155,15 @@ function getLine() {
     }
 }
 
+async function saveClientMeme() {
+    const url = await uploadImg()
+    saveToStorage(KEY,{gMeme,url})
+}
+
+function userGallery() {
+    
+}
+
 function shuffleImgs() {
     gImgs.sort(() => Math.random() - 0.5)
 }

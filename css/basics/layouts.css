@@ -9,6 +9,9 @@
     >.meme-editor {
         grid-column: 2/-2;
     }
+    >.saved-memes{
+        grid-column: 2/-2;
+    }
 }
 
 .main-header {
@@ -37,4 +40,14 @@
    >.gallery-img{
     margin-bottom: 10px;
    }
+}
+
+.saved-memes.no-msg{
+    display: grid;
+    grid-template-columns: repeat(5,minmax(200px,1fr));
+    columns: 200px 4;
+    gap: 15px;
+    >.gallery-img{
+     margin-bottom: 10px;
+    }
 }
