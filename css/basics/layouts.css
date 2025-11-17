@@ -12,6 +12,15 @@
     >.saved-memes{
         grid-column: 2/-2;
     }
+
+    >footer{
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: minmax(16px, 1fr) auto minmax(16px, 1fr);
+        >*{
+            grid-column: 2/-2;
+        }
+    }
 }
 
 .main-header {

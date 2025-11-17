@@ -1,0 +1,45 @@
+footer {
+    text-align: center;
+    width: 100%;
+    height: max-content;
+    align-self: end;
+
+    border-top: 2px black solid;
+    background-color: var(--color-1);
+    padding: 20px;
+    margin-top: 40px;
+    color: var(--color-3);
+
+    .bot-nav {
+        font-size: 40px;
+    }
+
+    .fa-square-facebook:hover {
+        cursor: pointer;
+        color: rgb(14, 109, 250);
+        animation: bounce 1.5s;
+    }
+
+    .fa-square-twitter:hover {
+        cursor: pointer;
+        color: rgb(84, 178, 255);
+        animation: flash 1.5s;
+    }
+
+    .fa-square-instagram:hover {
+        cursor: pointer;
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+
+        animation: heartBeat 1.5s;
+    }
+
+    .fa-square-behance:hover {
+        cursor: pointer;
+        color: rgb(0, 87, 255);
+        animation: jello 1.5s;
+    }
+}

@@ -10,6 +10,7 @@
 @import url('components/main-header.css');
 @import url('components/gallery.css');
 @import url('components/editor.css');
+@import url('components/footer.css');
 
 /*SETUP*/
 @import url('setup/vars.css');

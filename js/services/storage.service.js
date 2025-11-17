@@ -7,6 +7,11 @@ function saveToStorage(key,object) {
     localStorage.setItem(key,objectJSON)
 }
 
+function reSaveToStorage(key,object) {
+    var objectJSON = JSON.stringify(object)
+    localStorage.setItem(key,objectJSON)
+}
+
 function loadFromStorage(key) {
     return JSON.parse(localStorage.getItem(key))
 }

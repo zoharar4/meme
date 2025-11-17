@@ -1,12 +1,12 @@
-
 .edit-tools {
     background-color: var(--color-1);
     padding: 20px 30px;
     border-radius: 15px;
     text-align: center;
     border: 2px black solid;
-    *{
-      border: 0;  
+
+    * {
+        border: 0;
     }
 }
 
@@ -27,66 +27,71 @@ canvas {
     width: 55px;
     height: 55px;
     border-radius: 10px;
-    margin:10px;
+    margin: 10px;
     box-shadow: 0 4px 2px;
+
     >img {
         width: 100%;
     }
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         filter: brightness(0.8)
     }
 }
 
-.edit-btns:active{
+.edit-btns:active {
     filter: brightness(0.5);
 }
 
-.edit-sec-1{
-    >.switch-btn{
+.edit-sec-1 {
+    >.switch-btn {
         background-color: rgb(70, 180, 210);
     }
-    >.add-btn{
+
+    >.add-btn {
         background-color: rgb(60, 200, 80);
     }
-    >.delete-btn{
+
+    >.delete-btn {
         background-color: rgb(220, 60, 60);
     }
 }
 
 
-.edit-sec-2{
+.edit-sec-2 {
     background-color: rgb(65, 66, 66);
     border-radius: 10px;
 }
 
-.edit-sec-3{
+.edit-sec-3 {
     background-color: white;
     margin: 5px 0;
     padding: 10px;
     border-radius: 10px;
-    >p{
+
+    >p {
         margin: 0;
     }
 }
 
-.edit-sec-4{
+.edit-sec-4 {
     display: grid;
-    grid-template-columns: repeat(3,minmax(max-content,1fr));
+    grid-template-columns: repeat(3, minmax(max-content, 1fr));
 
-    >.share-btn{
+    >.share-btn {
         width: auto;
         font-size: clamp(16px, 10vw, 40px);
         background-color: rgb(30, 125, 210);
     }
-    
-    >.download-btn{
+
+    >.download-btn {
         width: auto;
         font-size: clamp(16px, 10vw, 40px);
         background-color: rgb(140, 70, 190);
     }
-    
-    >.save-btn{
+
+    >.save-btn {
         width: auto;
         font-size: clamp(16px, 10vw, 40px);
         background-color: rgb(60, 200, 80);

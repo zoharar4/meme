@@ -35,14 +35,7 @@ var gImgs = [
     { id: 34, url: "images/meme-imgs-2/17.jpg", keywords: ['funny', 'cat'] },
 ]
 
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    imgUrl: "images/meme-square/7.jpg", //temporery
-    lines: [
-        getLine()
-    ]
-}
+var gMeme = {}
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
@@ -143,10 +136,10 @@ function addText() {
 function getLine() {
     return {
         txt: 'text',
-        size: 40,
-        color: 'white',
+        size: gMeme?.lines?.[gMeme.selectedLineIdx]?.size ?? 40,
+        color: gMeme?.lines?.[gMeme.selectedLineIdx]?.color ?? 'white',
         rectColor: 'black',
-        fontFamily: 'impact',
+        fontFamily:gMeme?.lines?.[gMeme.selectedLineIdx]?.fontFamily ?? 'impact',
         txtAlign: 'center',
         relativeX: 0.5,
         relativeY: 0.2,
@@ -156,10 +149,6 @@ function getLine() {
 async function saveClientMeme() {
     const url = await uploadImg()
     saveToStorage(KEY,{gMeme,url})
-}
-
-function userGallery() {
-    
 }
 
 function shuffleImgs() {

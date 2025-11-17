@@ -1,24 +1,29 @@
 
-*{
+::before,
+::after {
     box-sizing: border-box;
-    font-family:'popping';
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'popping';
     font-weight: 700;
 }
 
-
-body{
+body {
     padding: 0;
     margin: 0;
     background-color: var(--color-2);
+    min-height: 100vh;
 }
 
-.active{
+.active {
     content: ✖;
     right: 0;
     display: flex;
 }
 
-.not-active{
+.not-active {
     content: ☰;
     right: -315px;
     display: none;

@@ -24,13 +24,14 @@
     <section style="display: none;" class="meme-editor">
 
         <div class="canvas-container">
-            <canvas onmousedown="onCanvasClicked(event)" onmousemove="onMouseMove(event)" onmouseup="onMouseUp()"
+            <canvas onmousedown="onMouseDown(event)" onmousemove="onMouseMove(event)" onmouseup="onMouseUp()"
                 onmouseleave="onMouseUp()">
             </canvas>
         </div>
 
         <div class="edit-tools">
-            <input oninput="onTextChanged(this.value)" id="memeTextInput" placeholder="Enter Your Text Here.." type="text">
+            <input oninput="onTextChanged(this.value)" id="memeTextInput" placeholder="Enter Your Text Here.."
+                type="text">
 
             <section class="edit-sec-1">
                 <button onclick="onMoveLine('up')" class="edit-btns up-btn"><img src="ICONS/up-arrow.png"
@@ -78,9 +79,9 @@
                 </button>
             </section>
 
-            <section class="edit-sec-3">
+            <!-- <section class="edit-sec-3">
                 <p>ggggggggg</p>
-            </section>
+            </section> -->
 
             <section class="edit-sec-4">
                 <button onclick="onFacebookShare()" class="edit-btns share-btn">
@@ -100,7 +101,7 @@
     </section>
 
     <section class="gallery">
-        <nav class="categories">
+        <!-- <nav class="categories">
             <input type="text">
             <div>
                 <button>Funny</button>
@@ -108,7 +109,7 @@
                 <button>Work</button>
             </div>
             <button>More</button>
-        </nav>
+        </nav> -->
 
         <div class="gallery-imgs">
         </div>
@@ -118,10 +119,21 @@
         <h1 class="no-memes-msg">No saved memes here...</h1>
     </section>
 
+    <footer>
+        <div class="logo">Meme Generator</div>
+        <nav class="bot-nav">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-square-behance"></i>
+        </nav>
+        <p class="rights">© 2025 Zohar Ben Ami. All rights reserved.</p>
+    </footer>
+
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
-    
+
 </body>
 
 </html>
