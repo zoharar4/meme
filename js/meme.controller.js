@@ -20,6 +20,7 @@ function onInit() {
 }
 
 function changeCanvasSize() {
+    if (!getMeme().lines) return
     const canvasContainer = document.querySelector('.canvas-container')
     gElCanvas.width = canvasContainer.clientWidth - 10
     renderMeme()
@@ -54,6 +55,7 @@ function onClickedImg(id) {    //in the gallery
 function renderMeme() {   //renders the curr meme in the canvas
     return new Promise(resolve => {
         const meme = getMeme()
+        console.log('meme:',meme)
         const img = new Image()
         img.src = meme.imgUrl
 

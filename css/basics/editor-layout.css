@@ -13,13 +13,14 @@
 .edit-tools{
     display: grid;
     align-items: center;
+    margin-bottom: 80px;
 }
 
 
 .edit-sec-2{
     display: grid;
     grid-template-columns: repeat(5,1fr);
-
+    padding: 10px 0;
     >#fontFamily{
         grid-column: span 3;
     }

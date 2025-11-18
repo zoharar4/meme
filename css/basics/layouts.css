@@ -26,7 +26,8 @@
 .main-header {
     grid-column: 1/-1;
     display: grid;
-    grid-template-columns: minmax(16px, 1fr) minmax(auto, max-content) minmax(auto, 900px) minmax(16px, 1fr);
+    grid-template-columns: minmax(16px, 1fr)  250px minmax(auto, 950px) minmax(16px, 1fr);
+    text-wrap: nowrap;
 }
 
 .logo {

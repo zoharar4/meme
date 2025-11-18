@@ -1,6 +1,6 @@
 .edit-tools {
     background-color: var(--color-1);
-    padding: 20px 30px;
+    padding: 20px 10px;
     border-radius: 15px;
     text-align: center;
     border: 2px black solid;
@@ -28,7 +28,7 @@ canvas {
     height: 55px;
     border-radius: 10px;
     margin: 10px;
-    box-shadow: 0 4px 2px;
+    box-shadow: 0 4px 2px black;
 
     >img {
         width: 100%;
@@ -100,10 +100,10 @@ canvas {
 
 #memeTextInput {
     font-size: large;
-    min-height: 40px;
-    height: 60%;
+    height: 40px;
+    /* height: 60%; */
     border-radius: 10px;
-    box-shadow: 0 4px 2px;
+    box-shadow: 0 4px 2px black;
 }
 
 #fontFamily {
@@ -111,5 +111,5 @@ canvas {
     height: 55px;
     border-radius: 10px;
     margin: 10px;
-    box-shadow: 0 4px 2px;
+    box-shadow: 0 4px 2px black;
 }
