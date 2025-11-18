@@ -46,7 +46,7 @@ function getImgsArray() {
 function getMeme() {
     return gMeme
 }
-
+// asdasd
 function createGMeme(id) {  //creates the gMeme with default values when img clicked 
     var currImg = gImgs.find(img => img.id === id)
     gMeme = {
